@@ -126,4 +126,55 @@ footer p {
 }
 .topnav a:hover {
     color: #cdd8dd;
+    transform: scale(1.15);
+    animation: forwards;
+}
+
+.logout{
+    margin-left: 80%;
+}
+
+/* foto-foto pengurus*/
+
+.rio {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;    
+}
+.stanley {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;    
+}
+.stefanus {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;    
+}
+.theodore {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;    
+}
+
+.mikael {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;    
+}
+
+.description{
+    position:relative; 
+    top: -150px;
+    font-family:'Times New Roman', Times, serif;
+    margin-left : 20%;
+    margin-top: -70px;
+    font-size: 14pt;
+    color: black;
+    animation: color-change 3s infinite alternate;
 }
