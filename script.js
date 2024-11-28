@@ -1,3 +1,26 @@
+window.onload = function() {
+    if (window.location.pathname.includes('login.html')) {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        if (isLoggedIn === 'true') {
+            window.location.replace('home.html');
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    }
+
+    if (window.location.pathname.includes('home.html')) {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        if (isLoggedIn !== 'true') {
+            window.location.replace('login.html');
+        } else {
+            const username = sessionStorage.getItem('username');
+            document.getElementById('welcomeUser').textContent = `Welcome, ${username}`;
+
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+        }
+    }
+}
+
 function handleLogin(event) {
     event.preventDefault();
     
