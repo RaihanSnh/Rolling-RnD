@@ -1,5 +1,4 @@
 window.onload = function () {
-    // Handle login status
     if (window.location.pathname.includes('login.html')) {
         const isLoggedIn = sessionStorage.getItem('isLoggedIn');
         if (isLoggedIn === 'true') {
@@ -17,7 +16,10 @@ window.onload = function () {
             const username = sessionStorage.getItem('username');
             document.getElementById('welcomeUser').textContent = `Welcome, ${username}`;
 
-            document.getElementById('logoutBtn').addEventListener('click', logout);
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+            }
 
             document.getElementById('search-form').addEventListener('submit', function (event) {
                 event.preventDefault();
@@ -25,11 +27,7 @@ window.onload = function () {
                 const members = document.querySelectorAll('.member');
                 members.forEach(member => {
                     const name = member.getAttribute('data-name').toLowerCase();
-                    if (name.includes(query)) {
-                        member.style.display = 'block';
-                    } else {
-                        member.style.display = 'none';
-                    }
+                    member.style.display = name.includes(query) ? 'block' : 'none';
                 });
             });
         }
@@ -50,7 +48,7 @@ function handleLogin(event) {
     } else {
         errorMsg.style.display = 'block';
         document.getElementById('login-form').reset();
-        setTimeout(function () {
+        setTimeout(() => {
             errorMsg.style.display = 'none';
         }, 2000);
     }
